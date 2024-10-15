@@ -13,10 +13,10 @@
   </head>
   <body>
     <div class="flex min-h-screen justify-center">
-      <div class="grid grid-cols-3 bg-white overflow-hidden flex">
+      <div class="grid grid-cols-3 bg-white overflow-hidden  min-h-screen flex">
         <!-- Left Side Content -->
-        <div class="lg:col-span-2 col-span-3 bgcolor h-full">
-          <div class="px-10 pt-10 ">
+        <div class="lg:col-span-2 col-span-3 " style="background-color: #dfebf5; min-height: fit-content;">
+          <div class="px-10 pt-10">
             <img src="./images/logo.png" alt="Doctor" class="w-32 mb-2" />
 
             <h1 class="text-3xl font-bold text-black mb-2">
@@ -26,14 +26,14 @@
               Trusted by 10,000+ doctors and clinics nationwide
             </p>
           </div>
-          
+
           <div
-            class="relative grid grid-cols-5 w-full p-10"
+            class=" grid grid-cols-5 w-full p-10"
             style="height: 100%"
           >
             <!-- Background Gradient -->
             <div
-              class="absolute bottom-0 left-0 w-full lg:block hidden -z-10"
+              class="absolute bottom-0 left-0 w-2/3 lg:block hidden -z-10"
               style="
                 background: linear-gradient(
                   180deg,
@@ -42,7 +42,7 @@
                   rgb(13, 111, 171) 80%,
                   rgba(6, 107, 168, 1) 100%
                 );
-                height: 80%;
+                height: 50%;
               "
             ></div>
 
@@ -51,13 +51,15 @@
               <img
                 src="./images/doctor.png"
                 alt="doctor img"
-                class="z-10 "
+                class="z-10"
                 style="height: 400px; mix-blend-mode: multiply"
               />
             </div>
 
-            <div class="md:col-span-3 col-span-5 flex items-center md:pt-10 h-full">
-              <div class="space-y-6 flex items-center flex-col h-full ">
+            <div
+              class="md:col-span-3 col-span-5 flex items-center md:pt-10 h-full"
+            >
+              <div class="space-y-6 flex items-center flex-col h-full">
                 <div
                   class="flex items-center grid grid-cols-10 space-x-2 justify-start text-lg z-50"
                 >
@@ -155,7 +157,9 @@
           </div>
         </div>
         <!-- Right Side Form -->
-        <div class="lg:col-span-1 col-span-3 flex items-center p-10 mt-20 md:mt-0">
+        <div
+          class="lg:col-span-1 col-span-3 flex items-center p-10 mt-52 lg:mt-0"
+        >
           <div class="w-full">
             <img
               src="./images/logo.png"

@@ -3,15 +3,7 @@
   margin: 0%;
   box-sizing: border-box;
 }
-.bgcolor {
-  background-color: #dfebf5;
-  /* background: linear-gradient(
-    149deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(106, 175, 215, 1) 81%,
-    rgba(2, 107, 170, 1) 96%
-  ); */
-}
+
 /* input:checked + label .dot {
   transform: translateX(100%);
   top: 0%;
@@ -35,14 +27,13 @@ input:checked + label div {
   background-color: #fff; /* Initial dot background color */
 }
 
-/* When checked, move the dot and change its background color */
+/* When checked, move the dot to the right */
 input:checked + label .dot {
-  transform: translateX(100%);
-  background-color: #fff; /* Change dot background to white when checked */
+  transform: translateX(100%) translateY(-50%); /* Move horizontally, but keep vertical centered */
+  background-color: #fff; /* Keep the dot background color as white when checked */
 }
 
 /* Change the background of the switch when checked */
 input:checked + label div {
-  background-color: #007bff; /* Background color of the switch */
-  top: 0%;
+  background-color: #007bff; /* Background color of the switch when checked */
 }
