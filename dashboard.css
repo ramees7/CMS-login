@@ -1,0 +1,13 @@
+.sidebar-cont {
+    background-color: white;
+    color: black;
+}
+.sidebar-cont:hover{
+    background-color: #1378b8;
+    color: white;
+}
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}

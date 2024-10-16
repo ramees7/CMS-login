@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinic Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://kit.fontawesome.com/8c20757b0f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Sidebar -->
+    <nav
+      class="flex items-center justify-between px-12 py-4 text-white fixed top-0 w-full z-50"
+      style="background-color: #1378b8"
+    >
+      <!-- Left Section: Logo and Clinic Name -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center rounded-full gap-x-3 w-fit">
+          <img
+            src="./images/logo-only.png"
+            alt="Logo"
+            class="w-10 h-10 rounded-full"
+          />
+          <span>Clinic Names</span>
+        </div>
+      </div>
+
+      <!-- Center Section: Search Bar -->
+      <div class="flex mx-4">
+        <div class="relative flex items-center" style="width: 300px">
+          <input
+            type="text"
+            placeholder="Search name, email, or etc."
+            class="w-full p-2 pl-10 rounded-lg bg-white text-gray-700 focus:outline-none"
+          />
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400"
+          ></i>
+        </div>
+      </div>
+
+      <!-- Right Section: Language, Notifications, and Profile -->
+      <div class="flex items-center space-x-6">
+        <div>
+          <div class="relative">
+            <div
+              class="text-white flex items-center gap-x-2 cursor-pointer"
+              onclick="toggleDropdown()"
+              id="dropdownButton"
+            >
+              <h5>ES</h5>
+              <i class="fa-solid fa-caret-down"></i>
+            </div>
+
+            <!-- Dropdown menu -->
+            <div
+              id="dropdownMenu"
+              class="absolute hidden mt-2 bg-white text-black rounded shadow-md w-32"
+            >
+              <ul>
+                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
+                  Option 1
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
+                  Option 2
+                </li>
+                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
+                  Option 3
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <i class="fa-regular fa-bell text-xl"></i>
+
+        <i class="fa-regular fa-message text-xl"></i>
+
+        <img
+          src="https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_1280.png"
+          alt="User Profile"
+          class="w-10 h-10 rounded-full"
+        />
+      </div>
+    </nav>
+    <div class="grid grid-cols-7" style="margin-top: 72px">
+      <!-- Sidebar Container -->
+      <div
+        class="col-span-2 xl:col-span-1 bg-white py-5 shadow-lg flex flex-col justify-between fixed md:block hidden"
+        style="min-height: 622px"
+      >
+        <!-- Top Section: Navigation Links -->
+        <div class="flex flex-col p-4 space-y-2 overflow-y-auto">
+          <!-- Dashboard Link -->
+          <div
+            class="flex items-center justify-between w-full gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
+          >
+            <div class="flex gap-x-3 items-center">
+              <i class="fa-solid fa-house"></i>
+              <span class="">Dashboard</span>
+            </div>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+
+          <!-- Appointments Link -->
+          <div
+            class="flex items-center justify-between gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
+          >
+            <div class="flex gap-x-3 items-center">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Appointments</span>
+            </div>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div
+            class="flex items-center justify-between gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
+          >
+            <div class="flex gap-x-3 items-center">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Patients</span>
+            </div>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="space-y-2">
+            <div class="p-2 flex gap-x-4 text-lg items-center">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Tab 1</span>
+            </div>
+            <div class="p-2 flex gap-x-4 text-lg items-center">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Tab 2</span>
+            </div>
+            <div class="p-2 flex gap-x-4 text-lg items-center">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Tab 3</span>
+            </div>
+            <div class="p-2 flex gap-x-4 text-lg items-center">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Tab 4</span>
+            </div>
+            <div class="p-2 flex gap-x-4 text-lg items-center">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Tab 5</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 pt-20">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-x-2">
+              <img
+                src="https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_1280.png"
+                alt="User Profile"
+                class="w-10 h-10 rounded-full"
+              />
+              <div>
+                <h1 class="text-black font-semibold">Dr. Alex</h1>
+                <h2 class="text-gray-500 text-sm">Kerala</h2>
+              </div>
+            </div>
+            <i class="fa-solid fa-right-to-bracket text-xl"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-span-2 xl:col-span-1"></div>
+      <div class="col-span-7 xl:col-span-6 p-10">
+        <div class="grid grid-cols-3 flex gap-3">
+          <div
+            class="lg:col-span-2 col-span-3 flex items-center px-5 rounded-lg"
+            style="background-color: #79bee96e"
+          >
+            <h1 class="text-2xl font-semibold">Good Morning, Williams Sarah</h1>
+            <img
+              src="./images/anime.png"
+              alt="doctors img"
+              class="lg:h-40 h-20"
+            />
+          </div>
+          <div
+            class="lg:col-span-1 col-span-3 flex rounded-lg shadow-lg bg-white items-center justify-between px-5"
+          >
+            <div>
+              <h2 class="text-lg text-gray-500">Earnings</h2>
+              <h1 class="text-3xl font-bold">$678,298</h1>
+              <div class="flex items-center gap-2">
+                <img src="./images/arrowupleft.png" alt="arrow" class="w-6" />
+                <h2 class="text-lg text-gray-500">+9%</h2>
+              </div>
+            </div>
+            <img src="./images/bar.png" alt="" class="h-20" />
+          </div>
+        </div>
+        <div class="grid grid-col-12 py-10 gap-5">
+          <div class="col-span-12">
+            <h1 class="text-xl font-semibold">Overview</h1>
+          </div>
+          <div
+            class="lg:col-span-3 md:col-span-4 col-span-6 p-5 bg-white shadow-lg rounded-lg"
+          >
+            <div class="flex justify-between pb-5 items-center">
+              <h1 class="text-lg text-gray-500">Patients</h1>
+              <div
+                class="py-3 px-6 rounded-lg"
+                style="background-color: #ffe6bd"
+              >
+                <i class="fa-solid fa-hospital-user text-xl"></i>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <h1 class="text-3xl font-semibold">126</h1>
+              <div
+                class="p-2 flex items-center gap-2 rounded-lg text-red-600"
+                style="background-color: #ffb2c8"
+              >
+                <h1>10%</h1>
+                <i class="fa-solid fa-arrow-down text-xl"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-3 md:col-span-4 col-span-6 p-5 bg-white shadow-lg rounded-lg"
+          >
+            <div class="flex justify-between pb-5 items-center">
+              <h1 class="text-lg text-gray-500">Patients</h1>
+              <div
+                class="py-3 px-6 rounded-lg"
+                style="background-color: #ffe6bd"
+              >
+                <i class="fa-solid fa-hospital-user text-xl"></i>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <h1 class="text-3xl font-semibold">126</h1>
+              <div
+                class="p-2 flex items-center gap-2 rounded-lg text-red-600"
+                style="background-color: #ffb2c8"
+              >
+                <h1>10%</h1>
+                <i class="fa-solid fa-arrow-down text-xl"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-3 md:col-span-4 col-span-6 p-5 bg-white shadow-lg rounded-lg"
+          >
+            <div class="flex justify-between pb-5 items-center">
+              <h1 class="text-lg text-gray-500">Patients</h1>
+              <div
+                class="py-3 px-6 rounded-lg"
+                style="background-color: #ffe6bd"
+              >
+                <i class="fa-solid fa-hospital-user text-xl"></i>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <h1 class="text-3xl font-semibold">126</h1>
+              <div
+                class="p-2 flex items-center gap-2 rounded-lg text-red-600"
+                style="background-color: #ffb2c8"
+              >
+                <h1>10%</h1>
+                <i class="fa-solid fa-arrow-down text-xl"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-3 md:col-span-4 col-span-6 p-5 bg-white shadow-lg rounded-lg"
+          >
+            <div class="flex justify-between pb-5 items-center">
+              <h1 class="text-lg text-gray-500">Patients</h1>
+              <div
+                class="py-3 px-6 rounded-lg"
+                style="background-color: #ffe6bd"
+              >
+                <i class="fa-solid fa-hospital-user text-xl"></i>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <h1 class="text-3xl font-semibold">126</h1>
+              <div
+                class="p-2 flex items-center gap-2 rounded-lg text-red-600"
+                style="background-color: #ffb2c8"
+              >
+                <h1>10%</h1>
+                <i class="fa-solid fa-arrow-down text-xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-9 gap-5">
+          <div
+            class="flex flex-col items-center justify-center bg-white rounded-lg shadow-lg p-10 lg:col-span-2 md:col-span-4 col-span-9"
+          >
+            <div
+              class="h-36 w-36 flex justify-center items-center rounded-full"
+              style="
+                background: conic-gradient(
+                  rgb(216, 216, 216) 0% 75%,
+                  #1378b8 75% 100%
+                );
+                padding: 25px;
+              "
+            >
+              <div
+                class="h-full w-full bg-white flex justify-center items-center rounded-full"
+              >
+                <i
+                  class="fa-solid fa-hourglass-start text-4xl"
+                  style="color: #1378b8"
+                ></i>
+              </div>
+            </div>
+            <div class="mt-4 text-center">
+              <p class="text-gray-500">Next Appointment</p>
+              <p class="text-2xl font-bold" style="color: #1378b8">02h:12m</p>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-3 md:col-span-4 col-span-9 bg-white rounded-lg shadow-lg p-10"
+          >
+            <h2 class="text-2xl font-bold">To do List</h2>
+            <div class="mt-5 text-lg space-y-1">
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  style="width: 15px; height: 15px"
+                />
+                <h3>Buy food</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  style="width: 15px; height: 15px"
+                />
+                <h3>follow up call</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  style="width: 15px; height: 15px"
+                />
+                <h3>Collect reports</h3>
+              </div>
+              <div class="flex items-center gap-2 text-gray-500">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  style="width: 15px; height: 15px"
+                />
+                <h3 class="line-through">Call Arjun</h3>
+              </div>
+              <div class="flex items-center gap-2 text-gray-500">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  style="width: 15px; height: 15px"
+                />
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Write a task..."
+                />
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-4 col-span-9">
+            <div class="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-4">
+              <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold">Recent appointment</h2>
+                <a href="#" class="text-blue-600">Show all</a>
+              </div>
+              <div class="relative pl-6">
+                <!-- Vertical Line -->
+                <div
+                  class="absolute top-0 bottom-0 left-3 w-1 bg-gray-300"
+                ></div>
+
+                <!-- Appointment Item -->
+                <div class="flex items-center mb-4">
+                  <div class="w-4 h-4 rounded-full bg-gray-300"></div>
+                  <div class="ml-4 text-sm flex-1">
+                    <div class="flex justify-between">
+                      <span class="text-gray-500">08:00</span>
+                      <span class="text-gray-700">Alex</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center mb-4">
+                  <div class="w-4 h-4 rounded-full bg-gray-300"></div>
+                  <div class="ml-4 text-sm flex-1">
+                    <div class="flex justify-between">
+                      <span class="text-gray-500">08:15</span>
+                      <span class="text-gray-700">Suresh Patil</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Current Appointment Item -->
+                <div class="flex items-center mb-4 bg-blue-50 rounded-lg p-2">
+                  <div class="w-4 h-4 rounded-full bg-green-500"></div>
+                  <div class="ml-4 text-sm flex-1">
+                    <div class="flex justify-between">
+                      <span class="text-gray-800 font-semibold">08:45</span>
+                      <span class="text-gray-800 font-semibold"
+                        >Rakesh Sharma</span
+                      >
+                      <button
+                        class="bg-blue-600 text-white text-xs px-2 py-1 rounded-lg"
+                      >
+                        Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center mb-4">
+                  <div class="w-4 h-4 rounded-full bg-black"></div>
+                  <div class="ml-4 text-sm flex-1">
+                    <div class="flex justify-between">
+                      <span class="text-gray-500">09:00</span>
+                      <span class="text-gray-700">Rakesh B Noti</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center mb-4">
+                  <div class="w-4 h-4 rounded-full bg-gray-300"></div>
+                  <div class="ml-4 text-sm flex-1">
+                    <div class="flex justify-between">
+                      <span class="text-gray-500">09:20</span>
+                      <span class="text-gray-700">Anjali B Verma</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center">
+                  <div class="w-4 h-4 rounded-full bg-gray-300"></div>
+                  <div class="ml-4 text-sm flex-1">
+                    <div class="flex justify-between">
+                      <span class="text-gray-500">09:40</span>
+                      <span class="text-gray-700">Anjali B Verma</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 py-10 gap-5">
+          <div class="md:col-span-1 col-span-2">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+              <div class="flex mb-4 items-center justify-between">
+                <h2 class="text-xl font-semibold">Patients</h2>
+                <div class="flex justify-between gap-3 items-center">
+                  <div class="flex items-center">
+                    <span
+                      class="h-3 w-3 rounded-full mr-2"
+                      style="background-color: #5e45d9"
+                    ></span>
+                    <span class="text-gray-700">New Patients</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span
+                      class="h-3 w-3 rounded-full mr-2"
+                      style="background-color: #59d47c"
+                    ></span>
+                    <span class="text-gray-700">Old Patients</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="patientsChart" class="w-full"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-1 col-span-2">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+              <div class="flex mb-4 items-center justify-between">
+                <h2 class="text-xl font-semibold">Patients</h2>
+                <div class="flex justify-between gap-3 items-center">
+                  <div class="flex items-center">
+                    <span
+                      class="h-3 w-3 rounded-full mr-2"
+                      style="background-color: #5e45d9"
+                    ></span>
+                    <span class="text-gray-700">New Patients</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span
+                      class="h-3 w-3 rounded-full mr-2"
+                      style="background-color: #59d47c"
+                    ></span>
+                    <span class="text-gray-700">Old Patients</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="patientsChart-2" class="w-full"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleDropdown() {
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        dropdownMenu.classList.toggle("hidden");
+      }
+
+      // Close the dropdown when clicking outside
+      window.addEventListener("click", function (event) {
+        const dropdownButton = document.getElementById("dropdownButton");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        if (!dropdownButton.contains(event.target)) {
+          dropdownMenu.classList.add("hidden");
+        }
+      });
+
+      const ctx1 = document.getElementById("patientsChart").getContext("2d");
+      const patientsChart1 = new Chart(ctx1, {
+        type: "line",
+        data: {
+          labels: [
+            "12 Oct",
+            "13 Oct",
+            "14 Oct",
+            "15 Oct",
+            "16 Oct",
+            "17 Oct",
+            "18 Oct",
+          ],
+          datasets: [
+            {
+              label: "New Patients",
+              data: [28, 15, 35, 25, 18, 32, 20],
+              borderColor: "#5e45d9",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              fill: false,
+              tension: 0.4,
+              borderWidth: 2,
+            },
+            {
+              label: "Old Patients",
+              data: [20, 2, 24, 15, 33, 10, 34],
+              borderColor: "#59d47c",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              fill: false,
+              tension: 0.4,
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 10,
+              },
+              grid: {
+                color: "rgba(200, 200, 200, 0.5)",
+                borderColor: "rgba(200, 200, 200, 0.5)",
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        },
+      });
+
+      // Initialize the second chart
+      const ctx2 = document.getElementById("patientsChart-2").getContext("2d");
+      const patientsChart2 = new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: [
+            "12 Oct",
+            "13 Oct",
+            "14 Oct",
+            "15 Oct",
+            "16 Oct",
+            "17 Oct",
+            "18 Oct",
+          ],
+          datasets: [
+            {
+              label: "New Patients",
+              data: [28, 15, 35, 25, 18, 32, 20],
+              borderColor: "#5e45d9",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              fill: false,
+              tension: 0.4,
+              borderWidth: 2,
+            },
+            {
+              label: "Old Patients",
+              data: [20, 2, 24, 15, 33, 10, 34],
+              borderColor: "#59d47c",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              fill: false,
+              tension: 0.4,
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 10,
+              },
+              grid: {
+                color: "rgba(200, 200, 200, 0.5)",
+                borderColor: "rgba(200, 200, 200, 0.5)",
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
