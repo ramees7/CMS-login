@@ -16,313 +16,11 @@
     <link rel="stylesheet" href="./dashboard.css" />
   </head>
   <body class="bg-gray-100">
-    <!-- Sidebar -->
-    <nav
-      class="flex items-center justify-between px-12 py-4 text-white fixed top-0 w-full z-50"
-      style="background-color: #1378b8"
-    >
-      <!-- Left Section: Logo and Clinic Name -->
-      <div class="flex items-center justify-between gap-x-3">
-        <button
-          onclick="toggleSidebarOffcanvas()"
-          class="xl:hidden p-2 rounded"
-        >
-          <i class="fa-solid fa-bars text-2xl"></i>
-        </button>
-        <div class="flex items-center rounded-full gap-x-3 w-fit">
-          <img
-            src="./images/logo-only.png"
-            alt="Logo"
-            class="w-10 h-10 rounded-full"
-          />
-          <span>Clinic Names</span>
-        </div>
-      </div>
-
-      <!-- Center Section: Search Bar -->
-      <div class="hidden md:flex mx-4">
-        <div class="relative flex items-center" style="width: 300px">
-          <input
-            type="text"
-            placeholder="Search name, email, or etc."
-            class="w-full p-2 pl-10 rounded-lg bg-white text-gray-700 focus:outline-none"
-          />
-          <i
-            class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400"
-          ></i>
-        </div>
-      </div>
-
-      <!-- Right Section: Language, Notifications, and Profile -->
-      <div class="hidden md:flex items-center space-x-6">
-        <div>
-          <div class="relative">
-            <div
-              class="text-white flex items-center gap-x-2 cursor-pointer"
-              onclick="toggleDropdown()"
-              id="dropdownButton"
-            >
-              <h5>ES</h5>
-              <i class="fa-solid fa-caret-down"></i>
-            </div>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownMenu"
-              class="absolute hidden mt-2 bg-white text-black rounded shadow-md w-32"
-            >
-              <ul>
-                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
-                  Option 1
-                </li>
-                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
-                  Option 2
-                </li>
-                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
-                  Option 3
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <i class="fa-regular fa-bell text-xl"></i>
-        <i class="fa-regular fa-message text-xl"></i>
-        <img
-          src="https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_1280.png"
-          alt="User Profile"
-          class="w-10 h-10 rounded-full"
-        />
-      </div>
-
-      <!-- Hamburger Icon for Mobile -->
-      <div class="md:hidden flex items-center">
-        <button id="hamburger" class="text-white" onclick="toggleOffcanvas()">
-          <i class="fa-solid fa-bars text-2xl"></i>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Offcanvas Menu -->
-    <div
-      id="offcanvas"
-      class="offcanvas fixed top-0 right-0 h-full w-64 bg-white shadow-lg p-4 z-40 pt-24"
-    >
-      <div class="flex items-center justify-between mb-4">
-        <button onclick="toggleOffcanvas()" class=" ">
-          <i class="fa-solid fa-times text-2xl"></i>
-        </button>
-      </div>
-      <div class="mb-4">
-        <input
-          type="text"
-          placeholder="Search name, email, or etc."
-          class="w-full p-2 pl-2 rounded-lg bg-gray-200 text-gray-700 focus:outline-none"
-        />
-      </div>
-      <div class="flex flex-col mb-4 px-5 gap-3">
-        <div>
-          <div class="relative">
-            <div
-              class="text-black flex items-center gap-x-2 cursor-pointer"
-              onclick="toggleDropdown2()"
-              id="dropdownButton2"
-            >
-              <h5 class="text-xl">ES</h5>
-              <i class="fa-solid fa-caret-down"></i>
-            </div>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownMenu-2"
-              class="absolute hidden mt-2 bg-gray-300 text-white rounded shadow-md w-32"
-            >
-              <ul>
-                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
-                  Option 1
-                </li>
-                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
-                  Option 2
-                </li>
-                <li class="px-4 py-2 hover:bg-gray-200 rounded cursor-pointer">
-                  Option 3
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="text-lg gap-2 flex items-center font-semibold">
-          <i class="fa-regular fa-bell"></i>
-          <h1>Notifications</h1>
-        </div>
-        <div class="text-lg gap-2 flex items-center font-semibold">
-          <i class="fa-regular fa-message"></i>
-          <h1>Messages</h1>
-        </div>
-      </div>
-    </div>
-    <!-- --------------------------------------- -->
-    <div class="grid grid-cols-7" style="margin-top: 72px">
-      <!-- Sidebar Container -->
-
-      <!-- Sidebar for larger screens -->
-      <div
-        class="bg-white py-5 shadow-lg flex flex-col justify-between fixed xl:block hidden"
-        style="min-height: 622px"
-      >
-        <div class="flex flex-col p-4 space-y-2 overflow-y-auto">
-          <div
-            class="flex items-center justify-between w-full gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
-          >
-            <div class="flex gap-x-3 items-center">
-              <i class="fa-solid fa-house"></i>
-              <span class="">Dashboard</span>
-            </div>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-
-          <div
-            class="flex items-center justify-between gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
-          >
-            <div class="flex gap-x-3 items-center">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span>Appointments</span>
-            </div>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div
-            class="flex items-center justify-between gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
-          >
-            <div class="flex gap-x-3 items-center">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span>Patients</span>
-            </div>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="space-y-2">
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 1</span>
-            </div>
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 2</span>
-            </div>
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 3</span>
-            </div>
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 4</span>
-            </div>
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 5</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 pt-20">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-x-2">
-              <img
-                src="https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_1280.png"
-                alt="User Profile"
-                class="w-10 h-10 rounded-full"
-              />
-              <div>
-                <h1 class="text-black font-semibold">Dr. Alex</h1>
-                <h2 class="text-gray-500 text-sm">Kerala</h2>
-              </div>
-            </div>
-            <i class="fa-solid fa-right-to-bracket text-xl"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Offcanvas Menu for Small Screens -->
-      <div
-        id="sidebarOffcanvas"
-        class="offcanvas fixed top-0 left-0 h-full w-64 bg-white shadow-lg p-4 z-40 pt-20 xl:hidden"
-        style="transform: translateX(-100%); transition: transform 0.3s ease"
-      >
-        <div class="flex flex-col p-4 space-y-2 overflow-y-auto">
-          <!-- Repeat the same links from the sidebar -->
-          <div
-            class="flex items-center justify-between w-full gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
-          >
-            <div class="flex gap-x-3 items-center">
-              <i class="fa-solid fa-house"></i>
-              <span class="">Dashboard</span>
-            </div>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div
-            class="flex items-center justify-between gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
-          >
-            <div class="flex gap-x-3 items-center">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span>Appointments</span>
-            </div>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div
-            class="flex items-center justify-between gap-x-4 text-lg sidebar-cont p-2 rounded-lg"
-          >
-            <div class="flex gap-x-3 items-center">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span>Patients</span>
-            </div>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="space-y-2">
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 1</span>
-            </div>
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 2</span>
-            </div>
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 3</span>
-            </div>
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 4</span>
-            </div>
-            <div class="p-2 flex gap-x-4 text-lg items-center">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>Tab 5</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 pt-16">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-x-2">
-              <img
-                src="https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_1280.png"
-                alt="User Profile"
-                class="w-10 h-10 rounded-full"
-              />
-              <div>
-                <h1 class="text-black font-semibold">Dr. Alex</h1>
-                <h2 class="text-gray-500 text-sm">Kerala</h2>
-              </div>
-            </div>
-            <i class="fa-solid fa-right-to-bracket text-xl"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- --------sidebar---------------------- -->
-
-      <!-- Main Content -->
-      <div class="col-span-0 xl:col-span-1"></div>
-      <div class="col-span-7 xl:col-span-6 p-10">
+    <div class="grid grid-cols-7">
+      <div class="col-span-7 p-10">
         <div class="grid grid-cols-3 flex gap-3">
           <div
-            class="lg:col-span-2 col-span-3 flex items-center px-5 rounded-lg"
+            class="lg:col-span-2 col-span-3 flex items-center px-5 rounded-lg py-5 lg:py-0"
             style="background-color: #79bee96e"
           >
             <h1 class="text-2xl font-semibold">Good Morning, Williams Sarah</h1>
@@ -333,7 +31,7 @@
             />
           </div>
           <div
-            class="lg:col-span-1 col-span-3 flex rounded-lg shadow-lg bg-white items-center justify-between px-5"
+            class="lg:col-span-1 col-span-3 flex rounded-lg shadow-lg bg-white items-center justify-between px-5 py-5 lg:py-0"
           >
             <div>
               <h2 class="text-lg text-gray-500">Earnings</h2>
@@ -343,7 +41,7 @@
                 <h2 class="text-lg text-gray-500">+9%</h2>
               </div>
             </div>
-            <img src="./images/bar.png" alt="" class="h-20" />
+            <img src="./images/bar.png" alt="" class="xl:h-20 h-16" />
           </div>
         </div>
         <div class="grid grid-col-12 py-10 gap-5">
@@ -542,7 +240,6 @@
                     <!-- Time Labels -->
                     <h1>08:00</h1>
                     <div class="mt-28">
-                      <!-- Adjust this margin as needed for correct positioning -->
                       <h1>09:00</h1>
                     </div>
                   </div>
@@ -667,71 +364,6 @@
     </div>
 
     <script>
-      function toggleSidebarOffcanvas() {
-        const sidebarOffcanvas = document.getElementById("sidebarOffcanvas");
-        if (sidebarOffcanvas.style.transform === "translateX(0%)") {
-          sidebarOffcanvas.style.transform = "translateX(-100%)"; // Slide out to the left
-        } else {
-          sidebarOffcanvas.style.transform = "translateX(0%)"; // Slide in from the left
-        }
-      }
-
-      // Close offcanvas when clicking outside of it
-
-      // Close offcanvas when clicking outside of it
-      window.addEventListener("click", function (event) {
-        const sidebarOffcanvas = document.getElementById("sidebarOffcanvas");
-        const button = document.querySelector(".xl\\:hidden"); // Offcanvas button for xl screens
-        if (
-          !sidebarOffcanvas.contains(event.target) &&
-          !button.contains(event.target)
-        ) {
-          sidebarOffcanvas.style.transform = "translateX(-100%)"; // Close if clicked outside
-        }
-      });
-      // Toggle Offcanvas Menu
-      function toggleOffcanvas() {
-        const offcanvas = document.getElementById("offcanvas");
-        offcanvas.classList.toggle("active");
-      }
-
-      // Close offcanvas when clicking outside of it
-      window.addEventListener("click", function (event) {
-        const offcanvas = document.getElementById("offcanvas");
-        const hamburger = document.getElementById("hamburger");
-        if (
-          !offcanvas.contains(event.target) &&
-          !hamburger.contains(event.target)
-        ) {
-          offcanvas.classList.remove("active");
-        }
-      });
-
-      function toggleDropdown() {
-        const dropdownMenu = document.getElementById("dropdownMenu");
-        dropdownMenu.classList.toggle("hidden");
-      }
-      function toggleDropdown2() {
-        const dropdownMenu = document.getElementById("dropdownMenu-2");
-        dropdownMenu.classList.toggle("hidden");
-      }
-
-      // Close the dropdown when clicking outside
-      window.addEventListener("click", function (event) {
-        const dropdownButton = document.getElementById("dropdownButton");
-        const dropdownMenu = document.getElementById("dropdownMenu");
-        if (!dropdownButton.contains(event.target)) {
-          dropdownMenu.classList.add("hidden");
-        }
-      });
-      window.addEventListener("click", function (event) {
-        const dropdownButton = document.getElementById("dropdownButton-2");
-        const dropdownMenu = document.getElementById("dropdownMenu-2");
-        if (!dropdownButton.contains(event.target)) {
-          dropdownMenu.classList.add("hidden");
-        }
-      });
-
       const ctx1 = document.getElementById("patientsChart").getContext("2d");
       const patientsChart1 = new Chart(ctx1, {
         type: "line",

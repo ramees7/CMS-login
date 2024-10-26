@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./patientDetails.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://kit.fontawesome.com/8c20757b0f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- <div class="grid grid-cols-6 gap-4 p-4 shadow-lg ml-52 mt-20 rounded-lg"> -->
+    <div class="grid grid-cols-6 gap-4 p-4 shadow-lg m-4 rounded-lg">
+      <div class="lg:col-span-3 xl:col-span-2 col-span-6 flex flex-col justify-between">
+        <div class="flex gap-3">
+          <img
+            src="./images/patientProfile.png"
+            alt="profile not found"
+            class="rounded-full"
+            style="height: 120px; width: 140px"
+          />
+          <div class=" w-full ">
+            <div class="">
+                <div class="flex justify-between items-center">
+                  <h1 class="font-bold text-2xl" style="color: #595959;">Abhishek C K</h1>
+                  <i
+                class="fa-solid fa-ellipsis text-xl  px-3 py-2 rounded-lg "
+                style="
+                  background-color: #b5b5c3;
+                  color: black;
+                  height: fit-content;
+                  width: fit-content;
+                "
+              ></i>
+                </div>
+                <h3 style="color: #b5b5c3">MR15359</h3>
+                <div class="flex justify-between items-center mt-3">
+                  <h2 class="flex items-center gap-3  font-semibold" style="color: #595959;"><i class="fa-solid fa-phone-volume"></i>9745566852</h2>
+                  <h1 class="font-semibold " style="color: #595959;" ><i class="fa-solid fa-person-half-dress"></i> <span>Male</span>- <span>32</span></h1>
+                </div>
+                <h2 class="flex items-center gap-3  font-semibold" style="color: #595959;"><i class="fa-solid fa-envelope"></i></i>abhishekck45@gmail.com</h2>
+            </div>
+
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <div class="flex md:gap-8 gap-3 items-center mt-5 border rounded-lg p-3 shadow-lg " style="max-width: fit-content; color: #595959;" >
+            <h1 class="text-2xl font-semibold" >Next Appointment</h1>
+            <h1 style="background-color:#D0FBFF; width: fit-content; height: fit-content;" class="px-4 py-2 rounded-lg font-semibold">August 14, 2021</h1>
+            <h2>Consultation with Dr. James</h2>
+        </div>
+        </div>
+        
+
+        
+      </div>
+      <div id="heartRateCards" class="flex justify-center gap-4 flex-wrap lg:col-span-3 xl:col-span-4 col-span-6"></div>
+
+      <div class=" col-span-6" >
+        <div class="lg:hidden block">
+          <div class="flex md:gap-8 gap-3 items-center mt-5 border rounded-lg p-5 shadow-lg " style="max-width: fit-content; color: #595959;" >
+            <h1 class="text-2xl font-semibold" >Next Appointment</h1>
+            <h1 style="background-color:#D0FBFF; width: fit-content; height: fit-content;" class="px-4 py-2 rounded-lg font-semibold">August 14, 2021</h1>
+            <h2>Consultation with Dr. James</h2>
+        </div>
+        </div>
+        <div class="container mx-auto p-6">
+            <!-- Tab Navigation -->
+            <div class="flex justify-between space-x-6 border-b-2 border-gray-200 pb-2 overflow-x-scroll">
+                <button id="general" class="tab-button">General</button>
+                <button id="appointment" class="tab-button">Appointment</button>
+                <button id="clinic-notes" class="tab-button">Clinic Notes</button>
+                <button id="treatments" class="tab-button">Treatments</button>
+                <button id="prescription" class="tab-button">Prescription</button>
+                <button id="invoice" class="tab-button">Invoice</button>
+                <button id="payment" class="tab-button">Payment</button>
+                <button id="attachment" class="tab-button">Attachment</button>
+                <button id="sms" class="tab-button">SMS</button>
+                <button id="email" class="tab-button">Email</button>
+              </div>
+              <div class="flex justify-end my-4">
+                <div class="flex space-x-2">
+                    <button class="bg-gray-200 text-gray-600 rounded px-3 py-1">Month</button>
+                    <button class="bg-gray-200 text-gray-600 rounded px-3 py-1">Week</button>
+                    <button class="bg-gray-800 text-white rounded px-3 py-1">Day</button>
+                </div>
+            </div>
+            <!-- Tab Content -->
+            <div id="general" class="tab-content mt-4">
+                <div class="flex justify-between items-center flex-wrap gap-y-4">
+                  <div>
+                    <h1>Flea adulticide/larvicide antiparasitic</h1>
+                    <h2>FTP: <span>bprow@bnc.cc</span></h2>
+                  </div>
+                  <div class="flex gap-x-20 items-center">
+                    <div>
+                      <h1 class="py-1 px-3 rounded-lg" style="background-color: #EEE5FF; color: #8950FC;">Approved</h1>
+                    </div>
+                    <div class="flex gap-5 items-center">
+                      <i class="fa-solid fa-gear text-lg p-2 rounded-lg" style="background-color: #F3F6F9; color: #7E8299;"></i>
+                      <i class="fa-solid fa-pen-to-square text-lg p-2 rounded-lg" style="background-color: #F3F6F9; color: #7E8299;"></i>
+                      <i class="fa-solid fa-trash text-lg p-2 rounded-lg" style="background-color: #F3F6F9; color: #7E8299;"></i>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div id="appointment" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">Appointment Details</h2>
+              <p class="text-gray-700">Details about appointments will go here.</p>
+            </div>
+            <div id="clinic-notes" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">Clinic Notes</h2>
+              <p class="text-gray-700">Here are the clinic notes for this section.</p>
+            </div>
+            <div id="treatments" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">Treatments</h2>
+              <p class="text-gray-700">Information about treatments will go here.</p>
+            </div>
+            <div id="prescription" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">Prescription</h2>
+              <p class="text-gray-700">Prescription details can be added here.</p>
+            </div>
+            <div id="invoice" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">Invoice Information</h2>
+              <p class="text-gray-700">Here you can view invoice details.</p>
+            </div>
+            <div id="payment" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">Payment Details</h2>
+              <p class="text-gray-700">Details of payment methods and history go here.</p>
+            </div>
+            <div id="attachment" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">Attachment</h2>
+              <p class="text-gray-700">Upload or view attachments here.</p>
+            </div>
+            <div id="sms" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">SMS</h2>
+              <p class="text-gray-700">View SMS correspondence here.</p>
+            </div>
+            <div id="email" class="tab-content mt-4 hidden">
+              <h2 class="text-2xl font-bold mb-2">Email</h2>
+              <p class="text-gray-700">View email conversations here.</p>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+    <script>
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabContents = document.querySelectorAll(".tab-content");
+
+// Set default styling and show the first tab content
+if (tabButtons.length > 0) {
+    tabButtons[0].classList.add("bg-black", "text-white","py-2","px-5");
+    tabContents[0].classList.remove("hidden");
+}
+
+tabButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+        // Remove active styles from all buttons and hide all tab contents
+        tabButtons.forEach((btn) => btn.classList.remove("bg-black", "text-white","py-2","px-5"));
+        tabContents.forEach((content) => content.classList.add("hidden"));
+
+        // Add active styles to the clicked button and show the corresponding tab content
+        button.classList.add("bg-black", "text-white","py-2","px-5");
+        tabContents[index].classList.remove("hidden");
+    });
+});
+
+
+
+    // Array of heart rate data
+    const heartRates = [
+    { 
+        type: "Heart <br> Rate", 
+        rate: 98, 
+        rateType: "bpm", 
+        status: 'Normal', 
+        bg: '#FBF0F3', 
+        color: "#CA6B6E", 
+        icon: "fa-solid fa-heart-pulse" 
+    },
+    { 
+        type: "Blood <br> Pressure", 
+        rate: 102, 
+        rateType: "/72 mmhg", 
+        status: 'Normal', 
+        bg: '#D0FBFF', 
+        color: "#478F96", 
+        icon: "fa-solid fa-tachometer-alt" 
+    },
+    { 
+        type: "Blood <br> Sugar", 
+        rate: 110, 
+        rateType: "mg / dL", 
+        status: 'Normal', 
+        bg: '#F8DEBD', 
+        color: "#E79B38", 
+        icon: "fa-solid fa-tint" 
+    },
+    { 
+        type: "Allergy", 
+        rate: null, 
+        rateType: "", 
+        status: 'No Allergies', 
+        bg: '#E0FFE1', 
+        color: "#60A362", 
+        icon: "fa-solid fa-allergies" 
+    }
+];
+
+
+    // Function to generate heart rate cards
+    const generateHeartRateCards = () => {
+        const container = document.getElementById('heartRateCards');
+        container.innerHTML = heartRates.map((data) => `
+            <div class="border p-5 rounded-lg shadow-lg flex items-center justify-center">
+                <div>
+                  <div class="flex gap-5 items-center font-semibold">
+                    <i class="${data.icon} p-3 text-3xl rounded-xl" style="background-color: ${data.bg}; color: ${data.color}; height: fit-content; width: fit-content;"></i>
+                    <h1 class="text-xl">${data.type}</h1>
+                </div>
+                <div class="flex gap-2 items-center my-4">
+                    <h1 class="text-3xl">${data.rate}</h1>
+                    <h3 class="text-base" style="color: #818181;">${data.rateType}</h3>
+                </div>
+                <div  class=" flex items-center justify-between">
+                    <h1 style="background-color: ${data.bg}; color:black; width: fit-content; height: fit-content;" class="px-2 py-1 rounded-lg">${data.status}</h1>
+                    <div class="flex items-center gap-2 justify-between ml-4">
+                        <i class="fa-solid fa-plus cursor-pointer"></i>
+                        <i class="fa-solid fa-pen-to-square cursor-pointer"></i>
+                    </div>
+                </div>
+                  </div>
+            </div>
+        `).join('');
+    };
+
+    // Generate the heart rate cards on page load
+    document.addEventListener('DOMContentLoaded', generateHeartRateCards);
+
+
+
+
+
+
+
+    const activityData = {
+    labels: ['Jan 1', 'Jan 2', 'Jan 3', 'Jan 4', 'Jan 5', 'Jan 6', 'Jan 7', 'Jan 8', 'Jan 9', 'Jan 10', 'Jan 11', 'Jan 12', 'Jan 13', 'Jan 14'],
+    datasets: [
+        {
+            label: 'Aerobics',
+            data: [20, 15, 10, 25, 30, 40, 25, 15, 30, 20, 10, 25, 35, 20],
+            backgroundColor: '#CA6B6E', // Pinkish color
+            barThickness: 10,
+        },
+        {
+            label: 'Yoga',
+            data: [30, 25, 40, 35, 20, 30, 40, 25, 30, 40, 35, 20, 30, 25],
+            backgroundColor: '#478F96', // Blue color
+            barThickness: 10,
+        },
+        {
+            label: 'Meditation',
+            data: [20, 30, 25, 10, 15, 30, 20, 35, 15, 30, 40, 30, 25, 20],
+            backgroundColor: '#D08726', // Orange color
+            barThickness: 10,
+        }
+    ]
+};
+
+
+// Configure the stacked bar chart
+const config = {
+    type: 'bar',
+    data: activityData,
+    options: {
+        plugins: {
+            tooltip: {
+                mode: 'index',
+                intersect: false
+            },
+            legend: {
+                display: true,
+                position: 'bottom',
+                labels: {
+                    usePointStyle: true, // Use circular points in the legend
+                    pointStyle: 'circle',
+                    padding: 20, // Adds some padding between the icon and text
+                }
+            }
+        },
+        responsive: true,
+        scales: {
+            x: {
+                stacked: true,
+                grid: {
+                    display: false // Remove vertical lines
+                }
+            },
+            y: {
+                stacked: true,
+                beginAtZero: true,
+                max: 100,
+                grid: {
+                    drawBorder: false,
+                    lineWidth: 1,
+                    color: 'rgba(0, 0, 0, 0.1)' // Light color for horizontal lines
+                },
+                ticks: {
+                    stepSize: 20,
+                    callback: function(value) {
+                        return value + '%'; // Show percentage sign
+                    }
+                }
+            }
+        }
+    }
+};
+
+// Render the chart
+const ctx = document.getElementById('activityGrowthChart').getContext('2d');
+new Chart(ctx, config);
+
+window.addEventListener('resize', () => {
+    activityGrowthChart.resize();
+});
+
+
+
+
+</script>
+
+  </body>
+</html>
